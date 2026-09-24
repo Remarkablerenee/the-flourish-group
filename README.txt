@@ -1,0 +1,1 @@
+Replace the current site files with this package. Upload the assets folder as well. The design follows the supplied TFG brand board, including the gold interlocking monogram reference.
