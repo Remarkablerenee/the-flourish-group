@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="The Flourish Group monogram">
+  <circle cx="80" cy="80" r="72" fill="#1d1d1b"/>
+  <circle cx="80" cy="80" r="67" fill="none" stroke="#c7a15a" stroke-width="1.5"/>
+  <!-- T -->
+  <path d="M35 43h50M60 43v74" fill="none" stroke="#f8f3e9" stroke-width="9" stroke-linecap="square"/>
+  <!-- F -->
+  <path d="M72 50h43M72 50v67M72 81h34" fill="none" stroke="#c7a15a" stroke-width="8" stroke-linecap="square"/>
+  <!-- G -->
+  <path d="M121 70c-5-16-17-24-31-24-20 0-32 14-32 34s12 34 32 34c12 0 23-5 30-14V82H94" fill="none" stroke="#f8f3e9" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter"/>
+</svg>
