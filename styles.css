@@ -98,3 +98,10 @@ body{background:#faf6ee}
 .stats{background:linear-gradient(115deg,#f8f2e7,#faf6ee)}
 .help-panel{background:linear-gradient(115deg,#f8f2e7,#fffaf1)}
 .cta-card{background:rgba(255,252,245,.97)}
+
+/* Refined line artwork for category symbols and featured links */
+.category-icon svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round;display:block}
+.featured-opportunity>.category-icon svg{width:1.05em;height:1.05em}
+.featured-opportunity>a{border:1px solid rgba(184,139,67,.55);box-shadow:inset 0 1px rgba(255,255,255,.8);font:500 15px/1 var(--sans);transition:transform .2s,background .2s,color .2s}
+.featured-opportunity>a:hover{transform:translateX(2px);background:var(--orange);color:#fff}
+.pillar-icon svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round;display:block}
