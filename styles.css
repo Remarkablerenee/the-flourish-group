@@ -65,3 +65,25 @@ body[data-page="home"] .testimonial-shell:before{background-image:url('assets/ho
 .growth{min-height:340px;padding:34px 5vw;display:flex;align-items:center;justify-content:center;background:url('assets/resources-hero.jpg') center/cover}
 .faq-layout{align-items:start}.faq-main{min-width:0}.faq-layout .help-panel{grid-column:2;grid-row:1}.faq-layout .quick-links{grid-column:2;grid-row:2}.faq-main .faq-list{margin-top:20px}
 @media(max-width:720px){.cta-band,.growth{min-height:0;padding:30px 16px}.cta-card,.growth-card{padding:23px 19px}.cta-card h2,.growth-card h2{font-size:30px}.cta-actions{display:grid;grid-template-columns:1fr}.cta-actions .btn{width:100%;justify-content:center}.faq-layout .help-panel,.faq-layout .quick-links{grid-column:1;grid-row:auto}}
+/* Brand refinements from the approved reference: metallic gold, light sweep, and stronger contrast */
+.brand-mark{display:block;flex:none;width:56px;height:56px;border-radius:50%;background-image:url('assets/tag-brand.jpeg');background-repeat:no-repeat;background-size:88px 88px;background-position:center -7.5px;box-shadow:0 0 0 1px rgba(188,137,64,.5),0 0 14px rgba(190,142,67,.16)}
+.footer-mark{width:56px;height:56px}
+.cta-card h2,.growth-card h2,.cta-band h2,.growth h2{color:#171512!important;-webkit-text-fill-color:#171512!important;text-shadow:0 1px 0 rgba(255,255,255,.5)}
+.cta-card{border-color:rgba(195,145,72,.62);box-shadow:0 0 0 1px rgba(255,255,255,.6) inset,0 14px 42px rgba(83,51,20,.2),0 0 26px rgba(225,165,83,.18)}
+.btn-primary{background:linear-gradient(112deg,#d94a0b 0%,#f35a10 45%,#d86a17 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 5px 17px rgba(202,78,12,.24)}
+.btn-primary:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.65),0 8px 24px rgba(192,91,21,.34),0 0 18px rgba(220,162,75,.35)}
+.category-card{border-color:rgba(177,132,73,.34);box-shadow:inset 0 1px 0 rgba(255,255,255,.94),0 6px 20px rgba(96,62,23,.08)}
+.category-card:before{opacity:.68;background:url('assets/card-waves.svg') center/cover no-repeat,radial-gradient(ellipse at 82% 10%,rgba(248,182,96,.42),transparent 68%),linear-gradient(115deg,rgba(255,255,255,.5),transparent 54%)}
+.category-card:hover{border-color:#c1853a;box-shadow:inset 0 1px 0 #fff,0 12px 26px rgba(128,77,27,.13),0 0 22px rgba(227,170,87,.23)}
+.step-no{background:radial-gradient(circle at 32% 24%,#ffd991 0 9%,#d67b22 30%,#a84514 70%,#71300e 100%);border:1px solid rgba(255,226,170,.95);box-shadow:0 0 0 5px rgba(246,196,117,.24),0 0 18px rgba(216,137,47,.32),inset 0 1px 4px rgba(255,255,255,.7)}
+.site-footer .footer-nav a,.site-footer .footer-meta,.site-footer .footer-brand{color:#f8f0e4!important}.site-footer .footer-nav a:hover,.site-footer .footer-meta a{color:#efa34b!important}.footer-brand small{color:#e7ad56!important}
+.resource-feature-image img{object-position:center 55%}.resource-feature-card{border-color:rgba(180,132,73,.38);box-shadow:inset 0 1px rgba(255,255,255,.85),0 8px 22px rgba(85,54,22,.08)}
+@media(max-width:720px){.brand-mark{width:48px;height:48px;background-size:76px 76px;background-position:center -6px}.footer-mark{width:50px;height:50px}.cta-card h2,.growth-card h2,.cta-band h2,.growth h2{font-size:clamp(27px,8vw,36px)}}
+/* Community story panels */
+.story-invite{background:#211c16;border-top:1px solid #b9833f;border-bottom:1px solid #d7ae69;box-shadow:inset 0 1px 0 rgba(255,232,190,.15)}
+.story-invite:before{opacity:.24;filter:saturate(.9)}
+.story-invite:after{background:linear-gradient(90deg,rgba(25,22,18,.94),rgba(41,31,21,.78),rgba(25,22,18,.82))}
+.story-invite .eyebrow{color:#efb962!important}.story-invite .section-title{color:#fff7e9!important;text-shadow:0 1px 0 rgba(255,255,255,.08)}
+.story-invite .testimonial-card{max-width:740px;padding:26px 30px;border:1px solid rgba(220,176,106,.52);border-radius:8px;background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(242,205,148,.04));box-shadow:inset 0 1px rgba(255,255,255,.12),0 0 28px rgba(219,157,67,.12)}
+.story-invite .testimonial-card blockquote{font:500 clamp(18px,2.3vw,25px)/1.48 var(--sans);color:#fffaf0}
+.story-invite .testimonial-card p{color:#eadcc7;font-size:12px}.story-invite .testimonial-mark{color:#e5ae5d}.story-link{display:inline-flex;gap:8px;margin-top:10px;color:#ffb952;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}.story-link span{transition:transform .2s}.story-link:hover span{transform:translateX(4px)}
