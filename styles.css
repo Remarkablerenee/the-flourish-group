@@ -38,3 +38,8 @@
 .concierge-trigger{position:static;right:auto;bottom:auto;z-index:auto;flex:0 0 auto;white-space:nowrap;margin-left:16px}
 @media(max-width:900px){.concierge-trigger{margin-left:12px;padding:12px 14px}}
 @media(max-width:600px){.site-header{gap:10px;padding-left:16px;padding-right:16px}.brand{gap:7px}.concierge-trigger{margin-left:auto;padding:12px;font-size:9px}.concierge-panel{bottom:74px}}
+
+
+/* Show the full square monogram without cropping it. */
+.brand-mark{width:64px;height:64px;flex:0 0 64px;object-fit:contain;object-position:center}
+@media(max-width:600px){.brand-mark{width:44px;height:44px;flex-basis:44px}}
