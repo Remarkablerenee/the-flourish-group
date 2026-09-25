@@ -1,30 +1,36 @@
-document.querySelector('.menu-toggle')?.addEventListener('click',()=>document.querySelector('.nav')?.classList.toggle('open'));
-
 const pageName=location.pathname.split('/').pop().replace(/\.html$/,'')||'home';
 document.body.dataset.page=pageName==='index'?'home':pageName;
 
+const menuButton=document.querySelector('.menu-toggle');
+const nav=document.querySelector('.nav');
+menuButton?.addEventListener('click',()=>{const open=nav?.classList.toggle('open')??false;menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Close navigation':'Open navigation');document.body.classList.toggle('menu-open',open);});
+nav?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');menuButton?.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');}));
+
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('main section, .pillar-card, .feature-card, .resource-card, .category-card, .step, .faq-item').forEach((item,index)=>{item.classList.add('reveal');item.style.transitionDelay=`${Math.min(index%4,3)*65}ms`;});
+if('IntersectionObserver' in window&&!reduceMotion){const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(item=>revealObserver.observe(item));}else document.querySelectorAll('.reveal').forEach(item=>item.classList.add('is-visible'));
+
+const parallax=document.querySelector('[data-parallax]');
+if(parallax&&!reduceMotion&&window.matchMedia('(pointer:fine)').matches){const image=parallax.querySelector('.hero-image');window.addEventListener('scroll',()=>{const rect=parallax.getBoundingClientRect();const shift=Math.max(-18,Math.min(18,-rect.top*.035));if(image)image.style.transform=`translateY(${shift}px) scale(1.04)`;},{passive:true});}
+
+document.querySelectorAll('[data-scroll]').forEach(button=>button.addEventListener('click',()=>{const track=document.getElementById(button.dataset.scroll);if(track)track.scrollBy({left:Number(button.dataset.direction||1)*Math.min(track.clientWidth*.82,320),behavior:reduceMotion?'auto':'smooth'});}));
+
+document.querySelectorAll('.faq-question').forEach(button=>button.addEventListener('click',()=>{const item=button.closest('.faq-item');const willOpen=button.getAttribute('aria-expanded')!=='true';document.querySelectorAll('.faq-question[aria-expanded="true"]').forEach(openButton=>{if(openButton!==button){openButton.setAttribute('aria-expanded','false');openButton.closest('.faq-item')?.classList.remove('is-open');}});button.setAttribute('aria-expanded',String(willOpen));item?.classList.toggle('is-open',willOpen);}));
+
+const statObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;const number=entry.target,target=Number(number.dataset.count||0);let value=0;const start=performance.now(),duration=950;const tick=now=>{const progress=Math.min(1,(now-start)/duration);value=Math.round(target*(1-Math.pow(1-progress,3)));number.textContent=String(value);if(progress<1)requestAnimationFrame(tick);};requestAnimationFrame(tick);statObserver.unobserve(number);}),{threshold:.45});
+document.querySelectorAll('[data-count]').forEach(number=>statObserver.observe(number));
+
+const quoteCard=document.querySelector('.testimonial-card[data-quotes]');
+if(quoteCard){const quotes=JSON.parse(quoteCard.dataset.quotes||'[]');const quote=quoteCard.querySelector('blockquote');const dots=[...quoteCard.querySelectorAll('.carousel-dots button')];let active=0;const showQuote=index=>{active=(index+quotes.length)%quotes.length;quote.textContent=quotes[active];dots.forEach((dot,i)=>dot.setAttribute('aria-current',String(i===active)));};dots.forEach((dot,index)=>dot.addEventListener('click',()=>showQuote(index)));if(!reduceMotion&&quotes.length>1)window.setInterval(()=>showQuote(active+1),6500);}
+
 const concierge=document.createElement('div');
-concierge.innerHTML=`<button class="concierge-trigger" type="button" aria-expanded="false" aria-controls="tfg-concierge-panel">AI Concierge</button>
-<section class="concierge-panel" id="tfg-concierge-panel" role="dialog" aria-modal="false" aria-labelledby="tfg-concierge-title">
-  <header class="concierge-head"><strong id="tfg-concierge-title">THE FLOURISH GROUP</strong><p>How can we help you move forward?</p><button class="concierge-close" type="button" aria-label="Close concierge">×</button></header>
-  <div class="concierge-body"><p class="concierge-greeting">Choose a topic to get started.</p><div class="concierge-choices"></div><div class="concierge-answer" aria-live="polite" hidden></div></div>
-  <footer class="concierge-foot">Guided answers from the information on this site.</footer>
-</section>`;
+concierge.innerHTML=`<button class="concierge-trigger" type="button" aria-expanded="false" aria-controls="tfg-concierge-panel">AI Concierge</button><section class="concierge-panel" id="tfg-concierge-panel" role="dialog" aria-modal="false" aria-labelledby="tfg-concierge-title"><header class="concierge-head"><strong id="tfg-concierge-title">THE FLOURISH GROUP</strong><p>How can we help you move forward?</p><button class="concierge-close" type="button" aria-label="Close concierge">×</button></header><div class="concierge-body"><p>Choose a topic to get started.</p><div class="concierge-choices"></div><div class="concierge-answer" aria-live="polite" hidden></div></div><footer class="concierge-foot">Guided answers from the information on this site.</footer></section>`;
 document.body.append(concierge);
-const conciergeButton=concierge.querySelector('.concierge-trigger');
-document.querySelector('.site-header')?.append(conciergeButton);
-const panel=concierge.querySelector('.concierge-panel');
-const closeButton=concierge.querySelector('.concierge-close');
-const answer=concierge.querySelector('.concierge-answer');
-const topics=[
-  {label:'Services',text:'Explore flexible support for your digital presence, business ideas, and marketing direction.',href:'services.html',link:'View Services'},
-  {label:'Opportunities',text:'See the current opportunities and ways to connect with The Flourish Group.',href:'opportunities.html',link:'View Opportunities'},
-  {label:'Resources',text:'Browse practical resources and information gathered to support your next steps.',href:'resources.html',link:'Explore Resources'},
-  {label:'About TFG',text:'Learn more about The Flourish Group and its approach to helping ideas move forward.',href:'about.html',link:'About TFG'},
-  {label:'Something else',text:'For questions not covered here, contact the team at hello@theflourishgroup.co.',href:'mailto:hello@theflourishgroup.co',link:'Email The Flourish Group'}
-];
-const choices=concierge.querySelector('.concierge-choices');
-topics.forEach(topic=>{const choice=document.createElement('button');choice.className='concierge-choice';choice.type='button';choice.textContent=topic.label;choice.addEventListener('click',()=>{answer.replaceChildren();const copy=document.createElement('p');copy.textContent=topic.text;const link=document.createElement('a');link.href=topic.href;link.textContent=topic.link;answer.append(copy,link);answer.hidden=false;});choices.append(choice);});
+const conciergeButton=concierge.querySelector('.concierge-trigger'),panel=concierge.querySelector('.concierge-panel'),closeButton=concierge.querySelector('.concierge-close'),answer=concierge.querySelector('.concierge-answer');
+const topics=[{label:'Services',text:'Explore flexible support for your digital presence, business ideas, and marketing direction.',href:'services.html',link:'View Services'},{label:'Opportunities',text:'See the current opportunities and ways to connect with The Flourish Group.',href:'opportunities.html',link:'View Opportunities'},{label:'Resources',text:'Browse practical resources and information gathered to support your next steps.',href:'resources.html',link:'Explore Resources'},{label:'FAQ',text:'Find answers to common questions about the Flourish Group.',href:'faq.html',link:'Browse FAQs'},{label:'Contact',text:'For questions, contact hello@theflourishgroup.co.',href:'mailto:hello@theflourishgroup.co',link:'Email The Flourish Group'}];
+topics.forEach(topic=>{const choice=document.createElement('button');choice.className='concierge-choice';choice.type='button';choice.textContent=topic.label;choice.addEventListener('click',()=>{answer.replaceChildren();const copy=document.createElement('p'),link=document.createElement('a');copy.textContent=topic.text;link.href=topic.href;link.textContent=topic.link;answer.append(copy,link);answer.hidden=false;});concierge.querySelector('.concierge-choices').append(choice);});
 conciergeButton.addEventListener('click',()=>{const open=panel.classList.toggle('is-open');conciergeButton.setAttribute('aria-expanded',String(open));if(open)closeButton.focus();});
 closeButton.addEventListener('click',()=>{panel.classList.remove('is-open');conciergeButton.setAttribute('aria-expanded','false');conciergeButton.focus();});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&panel.classList.contains('is-open')){panel.classList.remove('is-open');conciergeButton.setAttribute('aria-expanded','false');conciergeButton.focus();}});
+
+const backTop=document.createElement('button');backTop.type='button';backTop.className='back-top';backTop.setAttribute('aria-label','Back to top');backTop.textContent='↑';document.body.append(backTop);window.addEventListener('scroll',()=>backTop.classList.toggle('is-visible',window.scrollY>650),{passive:true});backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduceMotion?'auto':'smooth'}));
