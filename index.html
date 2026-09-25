@@ -1,39 +1,110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Flourish Group</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Flourish Group connects people and businesses with services, opportunities, and resources built for what's next.">
+  <title>The Flourish Group — Built for What's Next.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-<header class="site-header">
-    <a href="index.html" class="brand">
-        <img
-            src="assets/IMG_0395.jpeg"
-            alt="The Flourish Group — Built for What's Next"
-            class="brand-logo"
-        >
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="The Flourish Group home">
+      <img class="brand-mark" src="assets/tfg-monogram.svg" alt="TFG monogram">
+      <span class="brand-name">THE<br>FLOURISH GROUP</span>
     </a>
-
-    <button class="menu-toggle" aria-label="Open navigation">
-        ☰
-    </button>
-
-    <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="opportunities.html">Opportunities</a>
-        <a href="resources.html">Resources</a>
-        <a href="about.html">About</a>
+    <button class="menu-toggle" aria-label="Open navigation">☰</button>
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="opportunities.html">Opportunities</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
     </nav>
+    <a class="nav-cta" href="opportunities.html">Explore what's next →</a>
+  </header>
 
-    <a href="opportunities.html" class="header-cta">
-        Explore What's Next →
-    </a>
-</header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">THE FLOURISH GROUP</div>
+        <h1>BUILD<br><em>WHAT'S</em> NEXT.</h1>
+        <p class="hero-lede">Explore services, opportunities, and resources designed to help your next move become your next chapter.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="services.html">Explore Services</a>
+          <a class="btn" href="opportunities.html">Explore Opportunities</a>
+          <a class="btn" href="resources.html">Explore Resources</a>
+        </div>
+      </div>
+      <div class="hero-image" aria-label="Editorial workspace image"></div>
+    </section>
 
+    <section class="pillars section-pad">
+      <article class="pillar-card">
+        <div class="pillar-body">
+          <div class="pillar-icon">✦</div>
+          <h2>Services</h2>
+          <p>Practical support for individuals and businesses looking to strengthen their ideas, digital presence, and growth strategy.</p>
+          <a href="services.html">Learn more →</a>
+        </div>
+      </article>
+      <article class="pillar-card">
+        <div class="pillar-body">
+          <div class="pillar-icon">↗</div>
+          <h2>Opportunities</h2>
+          <p>Curated partnerships, affiliations, collaborations, and opportunities worth exploring.</p>
+          <a href="opportunities.html">Learn more →</a>
+        </div>
+      </article>
+      <article class="pillar-card">
+        <div class="pillar-body">
+          <div class="pillar-icon">▱</div>
+          <h2>Resources</h2>
+          <p>Useful tools, recommendations, and information to support your next move.</p>
+          <a href="resources.html">Learn more →</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="statement">
+      <div class="statement-inner section-pad">
+        <div class="eyebrow">WHY THE FLOURISH GROUP</div>
+        <h2>A bridge between<br>where you are and <em>what's next.</em></h2>
+        <p>The Flourish Group connects individuals and businesses with services, opportunities, and resources designed to create momentum, open doors, and support meaningful growth.</p>
+        <a class="btn btn-outline-light" href="about.html">About The Flourish Group →</a>
+      </div>
+    </section>
+
+    <section class="content-section section-pad">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">CURATED BY TFG</div>
+          <h2>Featured opportunities</h2>
+        </div>
+        <a href="opportunities.html">Explore all opportunities →</a>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card"><div class="feature-body"><small>Business Tools</small><h3>Work smarter, not harder.</h3><p>Tools and services that can help simplify the next stage of business.</p><a href="opportunities.html">Explore →</a></div></article>
+        <article class="feature-card"><div class="feature-body"><small>Education &amp; Growth</small><h3>Keep becoming.</h3><p>Resources and opportunities to help you learn, build, and expand.</p><a href="opportunities.html">Explore →</a></div></article>
+        <article class="feature-card"><div class="feature-body"><small>Travel &amp; Experiences</small><h3>Make room for more.</h3><p>Opportunities to explore more of what life and work have to offer.</p><a href="opportunities.html">Explore →</a></div></article>
+        <article class="feature-card"><div class="feature-body"><small>What's Next</small><h3>There is more ahead.</h3><p>A growing collection of ideas, services, and possibilities from TFG.</p><a href="opportunities.html">Explore →</a></div></article>
+      </div>
+    </section>
+
+    <section class="growth section-pad">
+      <div><div class="eyebrow">THE NEXT CHAPTER</div><h2>The Group is <em>growing.</em></h2></div>
+      <div><p>New services, ventures, and opportunities are taking shape. Stay connected for what's next.</p><a class="btn" href="mailto:hello@theflourishgroup.co">Say hello →</a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand"><img src="assets/tfg-monogram.svg" alt="TFG"><div>THE FLOURISH GROUP<small>BUILT FOR WHAT'S NEXT.</small></div></div>
+    <div class="footer-nav"><a href="index.html">Home</a><a href="services.html">Services</a><a href="opportunities.html">Opportunities</a><a href="resources.html">Resources</a><a href="about.html">About</a></div>
+    <div class="footer-meta"><a href="mailto:hello@theflourishgroup.co">hello@theflourishgroup.co</a><br>© 2026 The Flourish Group</div>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
