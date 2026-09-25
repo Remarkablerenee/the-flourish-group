@@ -12,6 +12,7 @@ concierge.innerHTML=`<button class="concierge-trigger" type="button" aria-expand
 </section>`;
 document.body.append(concierge);
 const conciergeButton=concierge.querySelector('.concierge-trigger');
+document.querySelector('.site-header')?.append(conciergeButton);
 const panel=concierge.querySelector('.concierge-panel');
 const closeButton=concierge.querySelector('.concierge-close');
 const answer=concierge.querySelector('.concierge-answer');
